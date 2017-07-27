@@ -17,8 +17,8 @@ int main(int argc, char *argv[]) {
 			}
 		}
 		if (cont) {
-			if (strlen(argv[1]) > 9)
-				std::cerr << "Type number less than 10^9.\n";
+			if (strlen(argv[1]) > 8)
+				std::cerr << "Type number less than 10^9 .\n";
 			else {
 				//std::ofstream fout;
 				//fout.open("output.txt");
