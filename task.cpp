@@ -20,13 +20,15 @@ int main(int argc, char *argv[]) {
 			if (strlen(argv[1]) > 9)
 				std::cerr << "Type number less than 10^9.\n";
 			else {
-				std::ofstream fout;
-				fout.open("output.txt");
+				//std::ofstream fout;
+				//fout.open("output.txt");
 				int n = atoi(argv[1]);
-				for (int i = 1; i <= n; ++i)
-					fout << i << '\n';
-				fout.close();
-				std::cout << "Open output.txt to see the result.\n";
+				for (int i = 1; i <= n; ++i) {
+					std::cout << i << '\n'; 
+					//fout << i << '\n';
+				}
+				//fout.close();
+				//std::cout << "Open output.txt to see the result.\n";
 			}
 		}
 	}
