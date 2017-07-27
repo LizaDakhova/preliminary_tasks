@@ -1,12 +1,20 @@
 #include <iostream>
+#include <stdlib.h>
+#include <string>
 
 int main(int argc, char *argv[]) {
-	if (argc != 2) {
-		std::cout << "Edgar, you forgot to type the number)\n";
-		return 1;
-	}
-	for (int i = 1; i <= *(argv[1]) - '0'; ++i) {
-		std::cout << i << std::endl;
+	if (argc == 1)
+		std::cerr << "Type a natural number.\n";
+	else {
+		int n = atoi(argv[1]);
+		std::cout << n << '\n';
+		if (n == 0 && *argv[1] != '0')
+			std::cerr << "Use only digits to type the natural number.\n";
+		else if (n < 0)
+			std::cerr << "The negative number is unacceptable.\n";
+		else
+			for (int i = 1; i <= n; ++i)
+				std::cout << i << '\n';
 	}
 	return 0;
 }
