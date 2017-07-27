@@ -1,10 +1,11 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
+#include <fstream>
 
 int main(int argc, char *argv[]) {
-	if (argc == 1)
-		std::cerr << "Type a natural number.\n";
+	if (argc != 2)
+		std::cerr << "Type one natural number > 0.\n";
 	else {
 		int index = 0;
 		bool cont = true;
@@ -16,9 +17,17 @@ int main(int argc, char *argv[]) {
 			}
 		}
 		if (cont) {
-			int n = atoi(argv[1]);
-			for (int i = 1; i <= n; ++i)
-				std::cout << i << '\n';
+			if (strlen(argv[1]) > 9)
+				std::cerr << "Type number less than 10^9.\n";
+			else {
+				std::ofstream fout;
+				fout.open("output.txt");
+				int n = atoi(argv[1]);
+				for (int i = 1; i <= n; ++i)
+					fout << i << '\n';
+				fout.close();
+				std::cout << "Open output.txt to see the result.\n";
+			}
 		}
 	}
 	return 0;
